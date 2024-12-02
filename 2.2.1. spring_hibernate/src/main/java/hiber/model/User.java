@@ -20,7 +20,7 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+   @OneToOne(mappedBy = "user")
    private Car car;
 
    public User() {
@@ -39,8 +39,9 @@ public class User {
       this.email = email;
    }
 
-   public void setCar(Car car) {
+   public Car setCar(Car car) {
       this.car = car;
+      return car;
    }
 
    public Car getCar() {
